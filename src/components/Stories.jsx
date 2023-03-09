@@ -5,6 +5,7 @@ import "@splidejs/react-splide/css";
 import { HashtagIcon, HeartIcon } from "@heroicons/react/24/solid";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import { truncate } from "lodash";
+import { motion } from "framer-motion";
 
 const Stories = ({ story: { title, news } }) => {
   const splideOptions = {
@@ -24,20 +25,40 @@ const Stories = ({ story: { title, news } }) => {
       425: { perPage: 1 },
     },
   };
+
+  const imageVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } },
+  };
+
+  const titleVariants = {
+    hidden: { y: -50, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5, delay: 0.5 } },
+  };
   return (
     <>
       <div className="nike-container mb-11">
-        <Title title={title} />
+        <motion.div variants={titleVariants} initial="hidden" animate="visible">
+          <Title title={title} />
+        </motion.div>
         <div className="">
           <Splide options={splideOptions}>
             {news.map((val, i) => (
               <SplideSlide key={i} className="mb-0.5">
-                <div className="relative grid items-center gap-4 rounded-lg shadow shadow-slate-200 ring-1 ring-slate-200">
+                <motion.div
+                  className="relative grid items-center gap-4 rounded-lg shadow shadow-slate-200 ring-1 ring-slate-200"
+                  variants={imageVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
                   <div className="flex items-center justify-center">
-                    <img
+                    <motion.img
                       src={val.img}
                       alt={val.img}
                       className="w-full h-auto object-cover shadow-md shadow-slate-200 rounded-tl-lg rounded-tr-lg"
+                      variants={imageVariants}
+                      initial="hidden"
+                      animate="visible"
                     />
                   </div>
                   <div className="flex items-center justify-between w-full px-4">
@@ -72,7 +93,7 @@ const Stories = ({ story: { title, news } }) => {
                       {val.btn}
                     </a>
                   </div>
-                </div>
+                </motion.div>
               </SplideSlide>
             ))}
           </Splide>

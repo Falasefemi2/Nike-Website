@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import {
   MagnifyingGlassIcon,
@@ -27,7 +28,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <>
+    <AnimatePresence>
       <header
         ref={navRef}
         className={
@@ -35,12 +36,35 @@ const Navbar = () => {
             ? "absolute top-7 left-0 right-0 opacity-100 z-50"
             : "fixed top-0 left-0 right-0 h-[9vh] flex items-center justify-center opacity-100 z-50 blur-effect-theme"
         }
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -100 }}
+        transition={{ duration: 0.3, type: "spring", bounce: 0.2 }}
       >
         <nav className="flex items-center justify-between nike-container">
-          <div className="flex items-center">
-            <img src={logo} alt="logo" className="w-16 h-auto" />
-          </div>
-          <ul className="flex items-center justify-center gap-2">
+          <motion.div
+            className="flex items-center"
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            whileTap={{ scale: 0.9, rotate: -5 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.img
+              src={logo}
+              alt="logo"
+              className="w-16 h-auto"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            />
+          </motion.div>
+          <motion.ul
+            className="flex items-center justify-center gap-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <li className="grid items-center">
               <MagnifyingGlassIcon className="icon-style" />
             </li>
@@ -60,10 +84,10 @@ const Navbar = () => {
                 </div>
               </button>
             </li>
-          </ul>
+          </motion.ul>
         </nav>
       </header>
-    </>
+    </AnimatePresence>
   );
 };
 
