@@ -12,13 +12,13 @@ const Hero = ({
         <div className="bg-theme clip-path h-[85vh] lg:h-[75vh] md:h-[65vh] sm:h-[55vh] w-auto absolute top-0 left-0 right-0 opacity-100 z-10"></div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           className="relative opacity-100 z-20 grid items-center justify-items-center nike-container"
         >
           <div className="grid items-center justify-items-center mt-28 md:mt-24">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               className="text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl font-extrabold filter drop-shadow-sm text-slate-200"
             >
               {title}
@@ -26,7 +26,7 @@ const Hero = ({
 
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               className="text-6xl lg:text-5xl md:text-4xl sm:text-3xl xsm:text-2xl font-extrabold filter drop-shadow-sm text-slate-200"
             >
               {subtitle}
@@ -35,13 +35,13 @@ const Hero = ({
               type="button"
               className="button-theme bg-slate-200  shadow-slate-200 rounded-xl my-5"
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
             >
               {btntext}
             </motion.button>
             <motion.div
               initial={{ opacity: 0, y: 50 }}
-              animate={{
+              whileInView={{
                 opacity: 1,
                 y: 0,
                 transition: { duration: 0.8, ease: "easeInOut" },
@@ -54,7 +54,7 @@ const Hero = ({
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: -50 }}
-              animate={{
+              whileInView={{
                 opacity: 1,
                 y: 0,
                 transition: { duration: 0.8, ease: "easeInOut", delay: 0.5 },
@@ -68,13 +68,13 @@ const Hero = ({
           </div>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
             className="flex items-center"
           >
             <motion.img
               initial={{ rotate: -25 }}
-              animate={{ rotate: 0 }}
+              whileInView={{ rotate: 0 }}
               transition={{ duration: 0.8, ease: "easeInOut", delay: 0.5 }}
               src={img}
               alt="hero-img/img"

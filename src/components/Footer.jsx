@@ -6,14 +6,14 @@ const Footer = ({ footerAPI: { titles, links } }) => {
       <motion.footer
         className="bg-theme pt-7 pb-5"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
         <div className="nike-container text-slate-200">
           <motion.div
             className="grid items-start grid-cols-3 max-w-2xl w-full m-auto md:max-w-none md:gap-5"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
             {titles.map((val, i) => (
@@ -21,7 +21,7 @@ const Footer = ({ footerAPI: { titles, links } }) => {
                 key={i}
                 className="grid items-center"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <h1 className="text-lg lg:text-base md:text-sm uppercase font-semibold">
@@ -34,7 +34,7 @@ const Footer = ({ footerAPI: { titles, links } }) => {
                 key={i}
                 className="grid items-center gap-1"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 {list.map((link, i) => (
@@ -42,7 +42,7 @@ const Footer = ({ footerAPI: { titles, links } }) => {
                     key={i}
                     className="text-sm sm:text-xs"
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{
                       duration: 0.5,
                       delay: i * 0.1 + titles.length * 0.1,
@@ -57,7 +57,7 @@ const Footer = ({ footerAPI: { titles, links } }) => {
           <motion.div
             className="mt-5 text-center"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.5,
               delay: titles.length * 0.1 + links.flat().length * 0.1,

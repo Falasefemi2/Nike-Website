@@ -6,7 +6,7 @@ const FlexContent = ({ endpoint, ifExists }) => {
     <>
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
         className={`flex items-center justify-between lg:flex-col lg:justify-center nike-container ${
           ifExists ? "flex-row-reverse" : "flex-row"
@@ -14,13 +14,13 @@ const FlexContent = ({ endpoint, ifExists }) => {
       >
         <motion.div
           initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
+          whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
           className="max-w-lg lg:max-w-none w-full md:text-center grid items-center lg:justify-items-center"
         >
           <motion.h1
             initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            whileInView={{ y: 0, opacity: 1 }}
             transition={{ type: "spring", stiffness: 120, damping: 12 }}
             className="text-4xl sm:text-3xl font-bold text-gradient"
           >
@@ -28,7 +28,7 @@ const FlexContent = ({ endpoint, ifExists }) => {
           </motion.h1>
           <motion.h1
             initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            whileInView={{ y: 0, opacity: 1 }}
             transition={{
               type: "spring",
               stiffness: 120,
@@ -41,7 +41,7 @@ const FlexContent = ({ endpoint, ifExists }) => {
           </motion.h1>
           <motion.p
             initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            whileInView={{ y: 0, opacity: 1 }}
             transition={{
               type: "spring",
               stiffness: 120,
@@ -58,7 +58,7 @@ const FlexContent = ({ endpoint, ifExists }) => {
             target={"_blank"}
             role="button"
             initial={{ y: -50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            whileInView={{ y: 0, opacity: 1 }}
             transition={{
               type: "spring",
               stiffness: 120,
@@ -78,7 +78,7 @@ const FlexContent = ({ endpoint, ifExists }) => {
         </motion.div>
         <motion.div
           initial={{ x: 50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
+          whileInView={{ x: 0, opacity: 1 }}
           transition={{
             type: "spring",
             stiffness: 120,

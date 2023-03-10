@@ -49,7 +49,7 @@ const Stories = ({ story: { title, news } }) => {
                   className="relative grid items-center gap-4 rounded-lg shadow shadow-slate-200 ring-1 ring-slate-200"
                   variants={imageVariants}
                   initial="hidden"
-                  animate="visible"
+                  whileInView="visible"
                 >
                   <div className="flex items-center justify-center">
                     <motion.img
@@ -58,7 +58,7 @@ const Stories = ({ story: { title, news } }) => {
                       className="w-full h-auto object-cover shadow-md shadow-slate-200 rounded-tl-lg rounded-tr-lg"
                       variants={imageVariants}
                       initial="hidden"
-                      animate="visible"
+                      whileInView="visible"
                     />
                   </div>
                   <div className="flex items-center justify-between w-full px-4">

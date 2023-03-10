@@ -1,5 +1,7 @@
 import { ShoppingBagIcon, StarIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { setAddItemToCart, setOpenCart } from "../../app/CartSlice";
 
 const Item = ({
   ifExists,
@@ -23,6 +25,20 @@ const Item = ({
     animate: { rotate: 0, transition: { duration: 0.5 } },
   };
 
+  const dispatch = useDispatch();
+
+  const onAddToCart = () => {
+    const item = { id, title, text, img, color, shadow, price };
+
+    dispatch(setAddItemToCart(item))
+  };
+
+  const onCartToggle = () => {
+    dispatch(setOpenCart({
+      cartState: true
+    }))
+  }
+
   return (
     <>
       <motion.div
@@ -41,7 +57,7 @@ const Item = ({
           <motion.h1
             className="text-2xl lg:text-lg md:text-base font-meduim filter drop-shadow text-slate-200"
             initial={{ opacity: 0, y: 50 }}
-            animate={{
+            whileInView={{
               opacity: 1,
               y: 0,
               transition: { delay: 0.2, duration: 0.5 },
@@ -52,7 +68,7 @@ const Item = ({
           <motion.p
             className="text-base md:text-sm font-normal text-slate-200 filter drop-shadow"
             initial={{ opacity: 0, y: 50 }}
-            animate={{
+            whileInView={{
               opacity: 1,
               y: 0,
               transition: { delay: 0.3, duration: 0.5 },
@@ -63,7 +79,7 @@ const Item = ({
 
           <motion.div
             initial={{ opacity: 0, y: 50 }}
-            animate={{
+            whileInView={{
               opacity: 1,
               y: 0,
               transition: { delay: 0.4, duration: 0.5 },
@@ -84,7 +100,7 @@ const Item = ({
 
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{
+              whileInView={{
                 opacity: 1,
                 transition: { delay: 0.6, duration: 0.5 },
               }}
@@ -99,12 +115,13 @@ const Item = ({
 
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { delay: 0.7, duration: 0.5 } }}
+            whileInView={{ opacity: 1, transition: { delay: 0.7, duration: 0.5 } }}
             className="flex items-center gap-3"
           >
             <button
               type="button"
               className="bg-white/90 blur-effect-theme button-theme p-0.5 shadow shadow-sky-200"
+              onClick={() => {onAddToCart(); onCartToggle()}}
             >
               <ShoppingBagIcon className="icon-style text-slate-900" />
             </button>
