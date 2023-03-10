@@ -1,5 +1,5 @@
 import React from "react";
-import Clips from "./utils/clips";
+import Clips from "./utils/Clips";
 import SocialLinks from "./utils/SocialLinks";
 import { motion } from "framer-motion";
 
